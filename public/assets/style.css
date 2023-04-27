@@ -1,0 +1,478 @@
+
+p ,h2 {
+    color: white;
+}
+span{
+    color: #a4b3a4;
+  font-size:0.875rem
+} 
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to left , #4f4c53 , #0d0d0f );
+    margin: 0;
+    /* display: grid; */
+}
+
+header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu_side{
+    width: 10%;
+    height: 87%;
+    border: 1px white solid;
+}
+
+.song_side{
+    width: 90%;
+    height: 87%;
+    border: 1px white solid;
+    overflow: auto;
+    
+}
+
+
+
+.music_play{
+    width: 100%;
+    height: 13%;
+    border: 1px white solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    background-image: linear-gradient(to left , #0d0d0f , #4f4c53  );
+
+    
+}
+.menu_side img {
+
+    width: 94px;
+    height: 56px;
+    border-radius: 0% 27% 38% 0%;
+}
+.music_play .left-side .title{
+    color: white;
+}
+
+
+.menu_item{
+    background-image: linear-gradient(to left ,  #0d0d0f 40%  , #4f4c53 );
+    width: 99px;
+    height: 45px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    padding-bottom: 3px;     
+    border-radius: 0% 30% 30% 0%;
+}
+
+
+
+.menu_item a{
+    text-decoration: none;
+    color: white;
+    margin-left: 6px;
+}
+.menu_item span{
+    color: white;
+}
+.last_item{
+margin-top: 180px;
+}
+
+.song_side .song_user img{
+    width: 39px;
+    border-radius: 50%;
+}
+
+.fa-bell {
+    color: black;
+    font-size: 26px;
+    background-color: #686970;
+    border-radius: 50%;
+    padding: 6px;
+    color: black;
+}
+.song_side nav{
+    padding: 16px;
+}
+.song_user {
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.song_user span{
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    margin-left: 6px;
+    margin-right: 16px;
+} 
+.song_search{
+    display: inline-block;
+}
+.fa-magnifying-glass{
+    color: gray;
+    font-size: 20px;
+}
+
+.song_search{
+    padding: 6px 15px;
+    background-color: white;
+    width: 40%;
+    border-radius: 20px;
+}
+
+.song_search input {
+    background: none;
+    outline: none;
+    border: none;
+    color: black;
+    width: 90%;
+}
+header .song_side .songs-title{
+    margin: 0px 11px ; 
+    margin-top: 20px;
+
+    
+}
+header .song_side .songs-title h4{
+    color:white;
+    display: inline;
+}
+header .song_side .songs-title a{
+    color:#7D2545;
+    float: right;
+    font-size: 19px;
+    font-weight: 700;
+}
+.song_card{
+    width: 11rem;
+    background-color: #111;
+    text-align: center;
+    padding: 15px;
+    transition: all .4s;
+    position: relative;
+    display: inline-block;
+    margin-right: 18px;  
+    margin-top: 18px;
+    margin-left: 10px;
+    text-decoration: none;
+
+}
+.song_card:hover{
+    background-color: #222;
+
+}
+.song_card h2 {
+
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.song_side .song_card img {
+    width: 100%;
+    height: 180px;  
+    
+}
+.fa-circle-play{
+    color: white;
+    font-size: 35px;
+}
+
+.play-icon{
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    text-align: center;
+    transform: translateY(60px);
+    opacity: 0;
+    transition: all .4s ;
+
+}
+.song_card:hover .play-icon{
+
+    opacity: 1;
+    transform: translateY(0) ;
+}
+
+.music_play .left-side img {
+    width: 60px;
+    height: 60px;
+}
+.music_play .left-side {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+}
+
+
+/* artist page */
+.background_img{
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;       
+    background-size: 1400px 300px;
+}
+header .song_side .artist_details img{
+    width: 172px;
+    height: 210px;
+    margin-left: 23px;
+    border: white 2px solid;
+    border-radius: 10%;
+}
+header .song_side .artist_details{
+    /* background-color: black; */
+    padding: 10px;
+
+}
+header .song_side .artist_details .artist_name p{ 
+    font-size: 56px;
+    font-weight: 700;
+    
+}
+header .song_side .artist_details .artist_name .subtitle p{ 
+    font-size: 20px;
+    font-weight: normal;
+}
+header .song_side .artist_details .artist_name { 
+    margin-left: 9px;
+    margin-top: 13px;
+    display: inline-block;
+}
+header .song_side .categories{ 
+    background-color: #1F1828;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 0px 0px 15px 15px;
+}
+header .song_side .categories ul{ 
+    display: inline;
+}
+header .song_side .categories ul li{ 
+    display: inline-block;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+header .song_side .categories .follow{ 
+    margin: 4px 40px 0px 0px;
+}
+header .song_side .artist_songs{ 
+    background-image:  linear-gradient(to left , #3f3c47 , #18151c ) ;
+    width: 90%;
+    height: 63px;
+    margin: 20px 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+header .song_side .artist_songs img{ 
+    border-radius: 13px;
+    width: 61px;
+}
+header .song_side .artist_songs p { 
+
+    margin-left: 17px;
+    margin-right: 16px;
+}
+header .song_side .artist_songs .right_icons ul{ 
+    padding: 0;
+}
+header .song_side .artist_songs .right_icons ul li { 
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: 77px;
+}
+/* artist page */
+
+
+/* login */
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-family: Raleway, sans-serif;
+}
+
+
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.screen {		
+	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	position: relative;	
+	height: 600px;
+	width: 360px;	
+	box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.screen__background__shape1 {
+	height: 520px;
+	width: 520px;
+	background: #FFF;	
+	top: -50px;
+	right: 120px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: #6C63AC;	
+	top: -172px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape3 {
+	height: 540px;
+	width: 190px;
+	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	top: -24px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape4 {
+	height: 400px;
+	width: 200px;
+	background: #7E7BB9;	
+	top: 420px;
+	right: 50px;	
+	border-radius: 60px;
+}
+
+.login {
+	width: 320px;
+	padding: 30px;
+	
+}
+
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #7875B5;
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+
+.social-login {	
+	position: absolute;
+	height: 140px;
+	width: 160px;
+	text-align: center;
+	bottom: 0px;
+	right: 0px;
+	color: #fff;
+}
+
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-login__icon {
+	padding: 20px 10px;
+	color: #fff;
+	text-decoration: none;	
+	text-shadow: 0px 0px 8px #7875B5;
+}
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
+}
+
+.button__text{
+    color: black;
+}
+/* end login */
