@@ -1,38 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import SongCard from './SongCard';
-
-const SongSection = () => {
+import { Link } from 'react-router-dom';
+const SongSection = ({ addToHistory,tracks,sectionTitle}) => {
     
-    const [tracks , setTracks] = useState([])
-    useEffect(()=>{
-        axios.get("http://localhost:8080/trend?genre=Pop&pageNumber=1&pageSize=100",
-        {
-            headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
-        }
-        ).then((response)=>{
-            setTracks(response.data) 
-        }).catch((error)=>{
-            console.log(error) ; 
-        })
-
-    },[])  
-
+    const handleClick=(trackId)=>{
+        addToHistory(trackId)
+      }
     return (
-        <>
+        <div className='song_section' >
 
-            <div className="songs-title" >
-                    {tracks.map((track)=>(  
-                            <SongCard 
-                            artistName = {track.track.artist.name}  
-                            trackTitle = {track.track.title}
+        
+        <div>
+                <h3>{sectionTitle}</h3>
+                {
+                       sectionTitle? <Link  to={`/seeMore${sectionTitle}`}>seemore</Link> :<></>
+                }
+                
+                
+        </div>
+                {tracks.length>=1 ? tracks.map((track,index)=>(  
+                        <SongCard handleClick={handleClick} key={index} track={track} />
+                )) : <h2>Loading...</h2>}   
 
-                        />
-                    ))}   
-            </div>
-           
 
-        </>
+
+    </div>
     );
 };
 

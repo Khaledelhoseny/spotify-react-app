@@ -2,11 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 const SongsUser = () => {
     const [userInfo , setUserInfo] = useState({})
     useEffect(()=>{
-        axios.get("http://localhost:8080/user/profile",
+        axios.get("http://localhost:8080/api/v1/user/profile",
       {
           headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
       }
@@ -20,19 +20,21 @@ const SongsUser = () => {
   
         },[])
 
+        function handleRemove(){
+          localStorage.removeItem("accessToken")
+        }
     return (
         <div className="song_user" >
-        <img src="./images/me.jpg" alt=""/>
         <span>{userInfo.username}</span>
-        <i className="fa-regular fa-bell"></i>
-        <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          settings
-        </button>
-        <ul class="dropdown-menu">
-          <li><Link class="dropdown-item" to="/profile">Profile</Link></li>
-          <li><Link class="dropdown-item" to="/resetPassword">reset password</Link></li>
-          <li><a class="dropdown-item" href="#">LogOut</a></li>     
+        <div className="dropdown">
+        <div className="dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false"  >
+          <img src="./images/me.jpg" alt=""/>
+        </div>
+        <ul className="dropdown-menu">
+          <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+          <li><Link className="dropdown-item" to="/resetPassword">reset password</Link></li>
+          <li><Link onClick={handleRemove} className="dropdown-item" to="/">log out</Link></li>
+          
         </ul>
       </div>
       </div>

@@ -20,11 +20,30 @@ const SignUpValidation = (values) => {
 
   if(!values.password){
     errors.password = "password Required" ; 
+  }else if(values.password.length <= 4){
+    errors.password = "password must be longer than or equal to 4 characters" ; 
+  }else if(64 <= values.password.length){
+    errors.password = "password must be shorter than or equal to 64 characters" ; 
   }
 
-  if(!values.birthDate){
-    errors.birthDate = "date Required" ; 
+  if(!values.username){
+    errors.username = "username Required" ; 
+  }else if(values.username.length < 4){
+    errors.username = "username must be longer than or equal to 4 characters" ; 
+  }else if(32 <values.username.length){
+    errors.username = "username must be shorter than or equal to 32 characters" ; 
   }
+
+  if(!values.favoriteGenre){
+    errors.favoriteGenre = "favoriteGenre Required" ; 
+  }
+  if(!values.birthDate){
+    errors.birthDate = "birthDate Required" ; 
+  }
+  if(!values.gender){
+    errors.gender = "gender Required" ; 
+  }
+  
   return errors; 
 };
 

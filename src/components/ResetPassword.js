@@ -20,7 +20,7 @@ const ResetPassword = () => {
         console.log(values.currentPassword)
         console.log(values.newPassword)
         
-        axios.post("http://localhost:8080/auth/reset-password",{
+        axios.post("http://localhost:8080/api/v1/auth/reset-password",{
             currentPassword:values.currentPassword,
             newPassword:values.newPassword
         } ,
@@ -43,7 +43,7 @@ const ResetPassword = () => {
        
     // }
     return (
-        <body>
+        <div className='main_div' >
             <header>
                 <Sidebar/>
                 <div className="song_side " >
@@ -86,7 +86,7 @@ const ResetPassword = () => {
 </div> 
                 </div>
             </header>
-      </body>
+      </div>
     );
 };
 

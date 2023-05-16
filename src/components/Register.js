@@ -25,34 +25,25 @@ const Register = () => {
     }
     function handleSubmit(e){
         e.preventDefault() ;
+        console.log(values.password.length)
         setError(SignUpValidation(values))  ; 
 
-        axios.post("http://localhost:8080/auth/register",{
-            username:values.username,
+        axios.post("http://localhost:8080/api/v1/auth/register",{
+            firstName:values.firstName,
+            lastName:values.lastName,
             email:values.email,
-            password:values.password
+            password:values.password,
+            username:values.username,
+            favoriteGenre:values.favoriteGenre,
+            birthDate:values.birthDate,
+            gender:values.gender,
         }).then((response)=>{
             console.log(response) 
     
         }).catch((error)=>{
             console.log(error) ; 
         })
-        // fetch("http://localhost:8080/auth/register",{
-        //     method:"POST",
-        //     headers: {'content-type':'application/json'},
-        //     body:JSON.stringify({
-        //         username:values.name,
-        //         email:values.email,
-        //         password:values.password,
-
-        //     })
-        // }).then(()=>{
-        //     console.log(values) 
-        //     toast.success("Successs")
-        // }).catch((error)=>{
-        //     toast.error("faild"+error.message)
-
-        // })
+     
     }
     const navigate =  useNavigate()
     useEffect(()=>{
@@ -63,6 +54,7 @@ const Register = () => {
     }, [errors] )
 
     return (
+        <div className='main_div' >
         <div className="container">
         <div className="screen">
             <div className="screen__content">
@@ -117,6 +109,8 @@ const Register = () => {
                         <label>Male</label>
                         <input type="radio" className="login__input"  value="Female"  name='gender' onChange={handleChange} />
                         <label>Female</label>
+                        {errors.gender && <p style={{color:"red"}} >{errors.gender  }</p> }
+
                     </div>
 
                     <button className="button login__submit">
@@ -133,6 +127,7 @@ const Register = () => {
                 <span className="screen__background__shape screen__background__shape1"></span>
             </div>		
         </div>
+    </div>
     </div>
     );
 };

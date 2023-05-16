@@ -17,20 +17,53 @@ const Login = () => {
     }
     function handleSubmit(e){
         e.preventDefault() ;
-        setError(LoginValidation(values))  ; 
         console.log(values.name)
         console.log(values.password)
         
-        axios.post("http://localhost:8080/auth/login",{
+        axios.post("http://localhost:8080/api/v1/auth/login",{
             username:values.name,
             password:values.password
         }).then((response)=>{
             console.log(response.data.access_token)
             localStorage.setItem('accessToken',response.data.access_token) 
+            
             console.log(localStorage)
-            navigate("/")
+            navigate("/home")
         }).catch((error)=>{
             console.log(error) ; 
+            if(error.response.status ===400&&values.name===""&&values.password===''){
+                setError(
+                    {
+                        name : "username required"  ,
+                        password : "password required"
+                    }
+                )  
+
+            }else if(error.response.status ===400&&values.name===''){
+                setError(
+                    {
+                        name : "username required" 
+                    }
+                ) ; 
+            }else if(error.response.status ===400&&values.password===''){
+                setError(
+                    {
+                        password : "password required" 
+                    }
+                ) ; 
+            }else if(error.response.status ===403){
+                setError(
+                    {
+                        name:"invalid username",
+                        password : "invalid password"
+
+                    }
+                ) ;
+            }
+        
+
+           
+
         })
     }
     const navigate =  useNavigate()
@@ -43,6 +76,7 @@ const Login = () => {
        
     }
     return (
+        <div className='main_div' >
         <div className="container">
         <div className="screen">
             <div className="screen__content">
@@ -78,6 +112,7 @@ const Login = () => {
                 <span className="screen__background__shape screen__background__shape1"></span>
             </div>		
         </div>
+    </div>
     </div>
     );
 };
