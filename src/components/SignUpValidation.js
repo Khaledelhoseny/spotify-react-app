@@ -20,11 +20,15 @@ const SignUpValidation = (values) => {
 
   if(!values.password){
     errors.password = "password Required" ; 
-  }else if(values.password.length <= 4){
+  }else if(values.password.length < 4){
     errors.password = "password must be longer than or equal to 4 characters" ; 
-  }else if(64 <= values.password.length){
+  }else if(64 < values.password.length){
     errors.password = "password must be shorter than or equal to 64 characters" ; 
   }
+
+
+  
+
 
   if(!values.username){
     errors.username = "username Required" ; 

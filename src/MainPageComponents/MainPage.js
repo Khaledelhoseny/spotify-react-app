@@ -1,51 +1,7 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
-import SongsUser from '../components/SongsUser';
-import SongSection from '../components/SongSection';
-import { useState ,useEffect } from 'react'; 
-import axios from 'axios';
-import MainPageSideBar from './MainPgaeSideBar';
-import MainPageComponents from './MainPageSongUser';
+import { useNavigate } from 'react-router-dom';
 const MainPage = () => {
-// get pop tracks
-  const [popTracks , setPopTracks] = useState([])
-  const getPopTracks = ()=>{
-    axios.get("http://localhost:8080/trend?genre=Pop&pageNumber=1&pageSize=100",
-    {
-        headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
-    }
-    ).then((response)=>{
-        setPopTracks(response.data) 
-    }).catch((error)=>{
-        // console.log(error) ; 
-    })
 
-  } 
-  useEffect(()=>{
-    getPopTracks()
-    },[])  
-
-// get pop tracks
-
-// get rock tracks
-const [rockTracks , setRockTracks] = useState([])
-const getRockTracks = ()=>{
-  axios.get("http://localhost:8080/trend?genre=Rock&pageNumber=1&pageSize=100",
-  {
-      headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
-  }
-  ).then((response)=>{
-      setRockTracks(response.data) 
-  }).catch((error)=>{
-    //   console.log(error) ; 
-
-  })
-
-} 
-useEffect(()=>{
-  getRockTracks()
-  },[])  
-// get rock tracks 
 
 if(window.location.reload){
     console.log("reloaded")
@@ -53,32 +9,40 @@ if(window.location.reload){
     // getRockTracks()
 
 }
-    return (
-      
-            
-        <div className='main_div' >
-        <header >
-            <MainPageSideBar/>
-        <div className="song_side" >
-        <nav>
-            <MainPageComponents/>
-        </nav>
-            
-     
-                 <h1>pop</h1>
-                 <SongSection tracks={popTracks} /> 
-                 <h1>rock</h1>
-                 <SongSection tracks={rockTracks} />  
-    
-            {/* <h1 id='title' ></h1>
-            <img id='downpic'/> */}
-            {/* {document.getElementById("pic") } */}
-            
-        </div>
-        </header>
-        </div>
-       
+const navigate = useNavigate();
 
+function navigateRegister (){
+    navigate('/register')
+}
+function navigateLogin (){
+    navigate('/login')
+}
+    return (
+      <div>
+            
+        <div className='main_page' >
+                <div className='welcome_container ' >
+                    <img width="200px" src='./images/beat.png' />
+                    <h2>Welcome to beat</h2>
+                    <button  onClick={navigateLogin} className='welcome_login_button' >Log in to BEAT</button>
+                    <p href="">Don't have an account ?</p>
+                    <button onClick={navigateRegister} className='welcome_signup_button' >Sign up to BEAT</button>
+
+                </div>
+                <div className='about_container text-center' >
+                    <h1> About Us </h1>
+                    <p>
+                            A music recommendation system is a software application
+                    that suggests music tracks to users based on their past listening behavior
+        Such systems have become increasingly popular due to the vast amount of music available online and the need to
+        help users discover new music they might enjoy. This project proposes a music rcommendation system that uses machine learning
+                        techniques to predict music tracks that a user is likely to enjoy.
+
+                    </p>
+                </div>
+        </div>
+            
+        </div>
 
         
     );

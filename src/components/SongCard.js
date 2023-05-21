@@ -1,42 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
 import FavIcon from './FavIcon';
 import Player from './Player';
-// import { useState } from 'react';
-import { useRef } from 'react';
-// import axios from 'axios';
-const SongCard = ({ handleClick,track}) => {
+
+
+const SongCard = ({ handleClick,track,setFavTracks}) => {
+
   function randomPic(){
     return Math.floor((Math.random() * 2) + 1);
   }
- 
-  // function saveTitle(){
-  //   document.getElementById("title").innerHTML=track.track.title ;
-  //   let x = document.getElementById("pic").getAttribute('src')
-  //   let img = document.getElementById("downpic")
-  //   img.src = x 
-  // }
-  // function addToHistory(){
-  //   axios.get(`http://localhost:8080/track/${track.track.id}`,
-  //   {
-  //       headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
-  //   }
-  //   ).then((response)=>{
-  //       console.log(response.data)
-  //   }).catch((error)=>{
-  //       console.log(error) ; 
-  //   })
+
+  const click = (tackId)=>{
+    randomPic()
+    document.getElementById("track_title").innerHTML=track.track.title ;
+    document.getElementById("artist_name").innerHTML=track.track.artist.name ;
+    document.getElementById("bottomBar_img").src= `./images/song_${randomPic()}.jpg` ;
+    handleClick(tackId)
     
-  // }
-
-const click = (tackId)=>{
-  handleClick(tackId)
-}
-
-
-
+    
+  }
+ 
     return (
       <>
       
@@ -49,12 +31,12 @@ const click = (tackId)=>{
         </div>
         {/* </Link> */}
        {/* <Link  target="_blank" to={`https://www.youtube.com/results?search_query=${track.track.title}`} > */}
-        <div onClick={()=>click(track.track.id)} className='play_icon' >
-          <Player  />
+       <div onClick={()=>click(track.track.id)} className='play_icon' >
+          <Player />
         </div>
         {/* </Link> */}
-
-       <FavIcon trackId={track.track.id} />
+      
+       <FavIcon setFavTracks={setFavTracks}  trackId = {track.track.id} />
       </div>
       
    

@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';  
+
 const SongsUser = () => {
     const [userInfo , setUserInfo] = useState({})
     useEffect(()=>{
@@ -28,13 +30,12 @@ const SongsUser = () => {
         <span>{userInfo.username}</span>
         <div className="dropdown">
         <div className="dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false"  >
-          <img src="./images/me.jpg" alt=""/>
+          <img  className='user_right_img' src="./images/user.jpg" alt=""/>
         </div>
         <ul className="dropdown-menu">
           <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
           <li><Link className="dropdown-item" to="/resetPassword">reset password</Link></li>
           <li><Link onClick={handleRemove} className="dropdown-item" to="/">log out</Link></li>
-          
         </ul>
       </div>
       </div>

@@ -26,7 +26,6 @@ const Login = () => {
         }).then((response)=>{
             console.log(response.data.access_token)
             localStorage.setItem('accessToken',response.data.access_token) 
-            
             console.log(localStorage)
             navigate("/home")
         }).catch((error)=>{
@@ -51,7 +50,7 @@ const Login = () => {
                         password : "password required" 
                     }
                 ) ; 
-            }else if(error.response.status ===403){
+            }else if(error.response.status ===403 ||error.response.status ===400){
                 setError(
                     {
                         name:"invalid username",
@@ -72,48 +71,43 @@ const Login = () => {
                 
         }
     }, [errors] )
-    const handleApi=()=>{
-       
+    function navigateRegister (){
+        navigate('/register')
     }
     return (
         <div className='main_div' >
-        <div className="container">
-        <div className="screen">
-            <div className="screen__content">
-                <form onSubmit={handleSubmit}  className="login">
-                    <div className="login__field">
-                        <i className="login__icon fas fa-user"></i>
-                        <input type="text" className="login__input" placeholder="User name" value={values.name} name='name' onChange={handleChange} />
-                        {errors.name && <p style={{color:"red"}} >{errors.name}</p> }
+            <div class="form_container" >
+                <img src="./images/uper-signin.jpeg" width="100%" alt=""/>
+                <form onSubmit={handleSubmit} >
+                    <div class="form_container_content" > 
+                            <p>To continue, log in to BEAT</p>
+                            <hr/>   
+                            <div class="form_field" >
+                                <label for="">username</label>
+                                <br/>
+                                <input type="text" className="login__input" placeholder="User name" name='name'    onChange={handleChange} />
+                                {errors.name && <span style={{color:"red"}} >{errors.name}</span> } 
+                            </div>
+                            <div class="form_field" >
+                                <label for="">password</label>
+                                <br/>
+                                <input type="password" className="login__input" placeholder="Password" name='password' onChange={handleChange} />
+                                {errors.password && <span style={{color:"red"}} >{errors.password}</span> } 
+                            </div>
+                            <div class="form_button" >
+                                <button>Log in</button>
+                                <hr/>
+                            </div> 
+                            <div class="sign_up_button text-center  " >
+                                <p href="">Don't have an account ?</p>
+                                  <button onClick={navigateRegister} >Sign Up</button>
+                            </div>  
+                        
                     </div>
-                    <div className="login__field">
-                        <i className="login__icon fas fa-lock"></i>
-                        <input type="password" className="login__input" placeholder="Password"  value={values.password}  name='password' onChange={handleChange} />
-                        {errors.password && <p style={{color:"red"}} >{errors.password}</p> }
-                    </div>
-                    <button className="button login__submit">
-                        <span  className="button__text">Log In Now <Link to="/register" >register</Link> </span>
-                        <i className="button__icon fas fa-chevron-right"></i>
-                    </button>				
                 </form>
-                <div className="social-login">
-                    <h3>log in via</h3>
-                    <div className="social-icons">
-                        <a href="#" className="social-login__icon fab fa-instagram"></a>
-                        <a href="#" className="social-login__icon fab fa-facebook"></a>
-                        <a href="#" className="social-login__icon fab fa-twitter"></a>
-                    </div>
-                </div>
             </div>
-            <div className="screen__background">
-                <span className="screen__background__shape screen__background__shape4"></span>
-                <span className="screen__background__shape screen__background__shape3"></span>		
-                <span className="screen__background__shape screen__background__shape2"></span>
-                <span className="screen__background__shape screen__background__shape1"></span>
-            </div>		
+        
         </div>
-    </div>
-    </div>
     );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
-import { faCirclePause } from '@fortawesome/free-solid-svg-icons'
 
-import { useEffect, useRef, useState } from 'react';
+
+
 const Player = () => {
 
 //player 
@@ -22,6 +22,8 @@ const Player = () => {
     // function PlayPause(){
     //     setIsPlaying(!isPlaying) 
     // }
+   
+      
     return (
         <>
         {/* <audio src='https://freesound.org/data/previews/612/612092_7037-lq.mp3' ref={audioElem} /> */}
@@ -29,7 +31,7 @@ const Player = () => {
         <FontAwesomeIcon onClick={PlayPause} icon={faCirclePause} />
 
         : */}
-        <FontAwesomeIcon  icon={faCirclePlay} />
+        <FontAwesomeIcon   icon={faCirclePlay} />
 
         {/* } */}
         </>

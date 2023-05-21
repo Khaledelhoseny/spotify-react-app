@@ -3,8 +3,12 @@ import Sidebar from './Sidebar';
 import SongsUser from './SongsUser';
 import axios from 'axios';
 import SongSection from './SongSection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import BottomBar from './BottomBar';
+
 const SeeMoreHistory = () => {
-    const [historyTracks , setHistoryTracks] = useState([])
+const [historyTracks , setHistoryTracks] = useState([])
 const getHistoryTracks = ()=>{
   
         axios.get(`http://localhost:8080/api/v1/history?pageNumber=1&pageSize=100`,
@@ -32,11 +36,17 @@ useEffect(()=>{
         <div className="song_side" >
         <nav>
             <SongsUser/>
+        <div className="song_search" >
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <input type="text" placeholder="Search..."/>
+        </div>
+
         </nav>
             
         <SongSection  tracks={historyTracks} /> 
 
         </div>
+        <BottomBar/>
         </header>
         </div>
     );

@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
 import FavIcon from './FavIcon';
 import Player from './Player';
-// import { useState } from 'react';
-import { useRef } from 'react';
-// import axios from 'axios';
 
 const SearchCard = ({handleClick,track}) => {
   function randomPic(){
@@ -15,12 +9,14 @@ const SearchCard = ({handleClick,track}) => {
  
   const click = (tackId)=>{
     handleClick(tackId)
+    document.getElementById("track_title").innerHTML=track.title ;
+    document.getElementById("artist_name").innerHTML=track.artist.name ;
+  
   }
   
 
     return (
       <>
-      
       <div className="song_card" >
        {/* <Link onClick={()=>click(track.track.id)} target="_blank" to={`https://www.youtube.com/results?search_query=${track.track.title}`} > */}
         <img id='pic' src= {`./images/song_${randomPic()}.jpg`}   alt=""/>

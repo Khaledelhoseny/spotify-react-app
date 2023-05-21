@@ -12,7 +12,7 @@ const MainPageComponents = () => {
 return (
 <div className="song_user" >
   <button onClick={navigateRegister} type="button" class=" btn btn-light">Sign Up</button>
-    <button  onClick={navigateLogin} type="button" class=" btn btn-light">Login</button>
+<button  onClick={navigateLogin} type="button" class=" btn btn-light">Login</button>
 
 
 </div>

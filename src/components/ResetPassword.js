@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import SongsUser from './SongsUser';
 import { useState } from 'react';
+import BottomBar from './BottomBar';
 import axios from 'axios';
 const ResetPassword = () => {
     const [values , setValues] = useState({
@@ -50,41 +51,37 @@ const ResetPassword = () => {
                 <nav>
                     <SongsUser/>
                 </nav> 
-                <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form onSubmit={handleSubmit} class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" onChange={handleChange} name='currentPassword' placeholder=" currentPassword"/>
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="text" class="login__input" onChange={handleChange} name='newPassword' placeholder="newPassword"/>
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">ResetPassword</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>log in via</h3>
-				<div class="social-icons">
-					<a href="#" class="social-login__icon fab fa-instagram"></a>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a>
-				</div>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div> 
+                    <div class="reset_container" >
+                        <img src="./images/uper-signin.jpeg" width="100%" alt=""/>
+                        <form  onSubmit={handleSubmit} >
+                            <div class="reset_container_content" > 
+                                
+                                    <p>Reset Your Password</p>
+                                    <hr/>
+                                    <div class="reset_field" >
+                                        <label for="">current password</label>
+                                        <br/>
+                                        <input type="text" className="login__input" placeholder="current password" onChange={handleChange} name='currentPassword' />
+                                        {/* {errors.name && <p style={{color:"red"}} >{errors.name}</p> }  */}
+                                    </div>
+                                    <div class="reset_field" >
+                                        <label for="">new password</label>
+                                        <br/>
+                                        <input type="password" className="login__input" placeholder="new password"    onChange={handleChange} name='newPassword'  />
+                                        {/* {errors.password && <p style={{color:"red"}} >{errors.password}</p> }  */}
+                                    </div>
+                                    <div class="reset_button" >
+                                        <button className='mt-3' >Reset</button>
+                                        <hr/>
+                                    </div> 
+                                     
+                                
+                                
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <BottomBar/>
             </header>
       </div>
     );

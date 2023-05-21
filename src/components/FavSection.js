@@ -10,7 +10,7 @@ const FavSection = ({tracks , sectionTitle,setFavTracks}) => {
             </div>
                     {tracks.length>=1 ? tracks.map((track)=>(  
                             <FavCard setFavTracks={setFavTracks} key={track.id} track={track} />
-                    )) : <h2>Loading...</h2>}   
+                    )) : <></>}   
        
         </div> 
          

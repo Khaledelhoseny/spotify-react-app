@@ -4,19 +4,22 @@ p ,h2 {
 }
 span{
     color: black;
-    font-size: 0.875rem;
+    font-size: 1rem;
     -webkit-line-clamp: 1;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    font-family: 'Poppins', sans-serif;
+
 } 
 
 .main_div{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to left , #4f4c53 , #0d0d0f );
+    background-image: linear-gradient(135deg , black , #5f5c66 );
     margin: 0;
-    /* display: grid; */
+    overflow: auto;
+
 }
 
 header{
@@ -29,13 +32,13 @@ header{
 .menu_side{
     width: 8%;
     height: 87%;
-    border: 1px white solid;
+    /* border: 1px white solid; */
 }
 
 .song_side{
     width: 92%;
     height: 87%;
-    border: 1px white solid;
+    /* border: 1px white solid; */
     overflow: auto;
     
 }
@@ -45,35 +48,74 @@ header{
 .music_play{
     width: 100%;
     height: 13%;
-    border: 1px white solid;
-    display: flex;
+    /* border: 1px white solid; */
+    /* display: flex; */
     align-items: center;
     justify-content: space-around;
     overflow: hidden;
-    background-image: linear-gradient(to left , #0d0d0f , #4f4c53  );
+    background-image: linear-gradient(to left , #2c1b2d , #7D2545 );
+    border-radius: 45px 45px 0px 0px;
 
-    
+
 }
 .menu_side img {
 
-    width: 94px;
-    height: 56px;
+    width: 122px;
+    height: 90px;
     border-radius: 0% 27% 38% 0%;
+
 }
 .music_play .left-side .title{
     color: white;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.music_play .left-side .subtitle{
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 44%;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 
+.music_play .left-side img {
+    display: none;
+    width: 60px;
+    height: 60px;
+}
+.music_play .left-side img[src] {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+.music_play .left-side {
+    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    margin-left: 137px;
+    position: relative;
+    
+}
+.music_play .bottomBar_link {
+  
+    position: absolute;
+    color: white;
+    bottom: 5%;
+    left: 48%;
+    cursor: pointer;
+}
 .menu_item{
-    background-image: linear-gradient(to left ,  #0d0d0f 40%  , #4f4c53 );
-    width: 99px;
-    height: 45px;
+    background-image: linear-gradient(to left , #0d0d0f 40% , #4f4c53 );
+    width: 114px;
+    height: 50px;
     margin-top: 10px;
     display: flex;
     align-items: center;
     padding-left: 6px;
-    padding-bottom: 3px;     
+    padding-bottom: 3px;
     border-radius: 0% 30% 30% 0%;
 }
 
@@ -83,16 +125,23 @@ header{
     text-decoration: none;
     color: white;
     margin-left: 6px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.menu_item a:hover{
+    color: white !important;
 }
 .menu_item span{
     color: white;
+    font-size: 18px;
 }
+
 .last_item{
 margin-top: 180px;
 }
 
 .song_side .song_user img{
-    width: 39px;
+    width: 44px;
     border-radius: 50%;
 }
 
@@ -114,11 +163,18 @@ margin-top: 180px;
 }
 .song_user span{
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 22px;
     margin-left: 6px;
     margin-right: 16px;
+    font-family: 'Poppins', sans-serif;
+
 } 
+.song_side .artist_details .song_user .dropdown-toggle .user_right_img {
+    width: 39px;
+    border-radius: 50%;
+}
+
 .song_search{
     display: inline-block;
 }
@@ -159,7 +215,7 @@ header .song_side .songs-title a{
     font-weight: 700;
 }
 .song_card{
-    width: 214px;
+    width: 211px;
     background-color: white;
     text-align: center;
     transition: all .4s;
@@ -180,13 +236,15 @@ header .song_side .songs-title a{
 } */
 .song_card h2 {
 
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     color: black;
+    font-family: 'Poppins', sans-serif;
+
 }
 .card-text{
     padding: 0px 38px;
@@ -205,7 +263,7 @@ header .song_side .songs-title a{
     font-size: 35px;
 }
 
-.fav-icon{
+.song_side .song_card .fav-icon{
     position: absolute;
     top: -26%;
     left: 78%;
@@ -236,24 +294,17 @@ header .song_side .songs-title a{
     transform: translateY(0) ;
 } */
 
-.music_play .left-side img {
-    width: 60px;
-    height: 60px;
-}
-.music_play .left-side {
-    text-align: center;
-    margin-top: 10px;
-    display: flex;
-}
+
 
 
 /* artist page */
 .background_img{
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/song_1.jpg');
     background-repeat: no-repeat;       
-    background-size: 1400px 300px;
+    background-size: 1400px 350px;
+    /* background-size:cover ; */
 }
-header .song_side .artist_details img{
+header .song_side .artist_details .user_left_img{
     width: 172px;
     height: 210px;
     margin-left: 23px;
@@ -263,16 +314,21 @@ header .song_side .artist_details img{
 header .song_side .artist_details{
     /* background-color: black; */
     padding: 10px;
-
+    height: 336px;
 }
 header .song_side .artist_details .artist_name p{ 
-    font-size: 56px;
-    font-weight: 700;
+    font-size: 70px;
+    font-weight: 500;
+    margin-left: 9px;
+    margin-top: 36px;
+    font-family: 'Poppins', sans-serif;
     
 }
 header .song_side .artist_details .artist_name .subtitle p{ 
     font-size: 20px;
     font-weight: normal;
+    font-family: 'Poppins', sans-serif;
+
 }
 header .song_side .artist_details .artist_name { 
     margin-left: 9px;
@@ -298,31 +354,61 @@ header .song_side .categories .follow{
     margin: 4px 40px 0px 0px;
 }
 header .song_side .artist_songs{ 
-    background-image:  linear-gradient(to left , #3f3c47 , #18151c ) ;
-    width: 90%;
-    height: 63px;
-    margin: 50px 40px;
+    background-image: linear-gradient(to left , #2e2c33 , #312c36 );
+    width: 92%;
+    height: 72px;
+    margin: 28px 40px;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
+    position: relative;
 }
 header .song_side .artist_songs img{ 
     border-radius: 13px;
-    width: 50px;
+    width: 53px;
     margin-left: 20px;
+    margin-top: -16px;
 }
 header .song_side .artist_songs p { 
-
-    margin-left: 17px;
-    margin-right: 16px;
+    font-family: 'Poppins', sans-serif;
+   margin: 0;
 }
 header .song_side .artist_songs .right_icons ul{ 
     padding: 0;
 }
-header .song_side .artist_songs .right_icons ul li { 
-    margin-top: 10px;
+header .song_side .artist_songs .right_icons img{ 
+    width: 33px;
+    height: 26px;
+    margin-bottom: 14px;
+
+}
+header .song_side .artist_songs .right_icons{ 
+    /* margin-left: 278px;
     display: inline-block;
-    margin-left: 77px;
+    width: 43%; */
+    float: right;
+}
+header .song_side .artist_songs .right_icons ul li { 
+   
+    display: inline-block;
+    margin-left: 113px; 
+}
+header .song_side .artist_songs .right_icons .fa-ellipsis { 
+    font-size: 39px;
+    color: white;
+    position: absolute;
+    bottom: 22px;
+    right: 20px;
+}
+header .song_side .artist_songs .fa-circle-play { 
+    
+    margin-left: 10px;
+    margin-top: 11px;
+    
+}
+.artist_songs .right_icons .fav-icon{
+    top: 33px;
+    display: inline-block;
+    position: relative;
+    left: -152px;
 }
 /* artist page */
 
@@ -524,13 +610,16 @@ header .song_side .artist_songs .right_icons ul li {
     margin-left: 19px;
     margin-top: 13px;
     display: inline;
+    font-family: 'Poppins', sans-serif;
+
 
 }
 .song_section a{
-    color: #7D2545;
+    color: #731c3c;
     float: right;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 700;
+    margin-right: 28px;
 
 
 }
@@ -539,3 +628,444 @@ header .song_side .artist_songs .right_icons ul li {
 
 }
 /* song section */
+/* loading */
+.loading{
+    margin-left: 31px;
+    margin-top: 16px;
+    color: white;
+}
+
+/* loading */
+/* drop down */
+.dropdown-menu{
+    background-color: #0d0d0f !important;
+}
+.dropdown-item{
+    color: white !important ;
+}
+.dropdown-item:hover {
+    background-color: #1f1f24 !important;
+}
+/* drop down */
+/* login page */
+
+.form_container{
+    background-color: #efefef;
+    margin: auto;
+    width: 600px;
+    height: 700px;
+    margin-top: 30px;   
+   
+}
+.form_container_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.form_container_content p{
+    color: black;  
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 14%;
+}
+.form_container_content hr{
+    width: 32%;
+    margin: auto;
+    height: 2px;
+}
+.form_container_content .form_field{
+    margin-top: 14px;
+
+}
+label{
+    font-family: 'Poppins', sans-serif;
+}
+.form_container_content .form_field input{
+    width: 450px;
+    height: 46px;
+    outline: none;
+    padding: 8px;
+    border: none;
+    box-shadow: 0px 0px 9px gray;
+    border-radius: 8px;
+    margin-top: 7px;
+    background-color: white;
+    font-weight: 100;
+
+}
+.form_container .form_button button {
+    
+        display: block;
+        width: 450px;
+        border: none;
+        background-color: black;
+        color: #7D2545;
+        border-radius: 25px;
+        height: 49px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 17px;
+        margin-top: 20px;
+}
+.form_container .form_button a {
+    color: #0d0d0f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    display: block;
+
+}
+.form_button hr{
+    
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: black ;
+    margin-top: 22px;
+    border:none;
+}
+.form_container .sign_up_button p{
+    margin-top: 27px;
+}
+.form_container .sign_up_button button {
+    display: block;
+    width: 450px;
+    border: none;
+    background-color: white;
+    color: gray;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+/* login page */
+
+/* register page */
+.register_container {
+    background-color: #efefef;
+    margin: auto;
+    width: 500px;
+    height: 1300px;;
+     
+}
+.register_container_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.register_container_content p{
+    color: black;  
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 2%;
+}
+.register_container_content hr{
+    width: 32%;
+    margin: auto;
+    height: 2px;
+}
+.register_container_content .register_field{
+    margin-top: 14px;   
+    width: 394px;
+}
+label{
+    font-family: 'Poppins', sans-serif;
+}
+.register_container_content .register_field input{
+    width: 394px;
+    height: 42px;
+    outline: none;
+    padding: 8px;
+    border: none;
+    box-shadow: 0px 0px 9px gray;
+    border-radius: 8px;
+    margin-top: 7px;
+    background-color: white;
+    font-weight: 100;
+
+}
+.register_container .register_button button {
+    display: block;
+    width: 394px;   
+    border: none;
+    background-color: black;
+    color: #7D2545;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 21px;
+}
+.register_container .register_button a {
+    color: #0d0d0f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    display: block;
+
+}
+.register_button hr{
+    
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: black ;
+    margin-top: 22px;
+    border:none;
+}
+.register_container .sign_up_button p{
+    margin-top: 27px;
+}
+.register_container .sign_up_button button {
+    display: block;
+    width: 450px;
+    border: none;
+    background-color: white;
+    color: gray;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    
+}
+.form-select-sm{
+    width: 394px;
+    height: 42px;
+    outline: none;
+    padding: 8px;
+    border: none;
+    box-shadow: 0px 0px 9px gray;
+    border-radius: 8px;
+    margin-top: 7px;
+}
+.form-select:focus{
+    border-color: gray !important ;
+    box-shadow: 0px 0px 9px gray !important;
+}
+
+
+.register_checkbox{
+    margin-top: 10px;
+    margin-right: 215px;
+}
+
+.form-check-input:checked {
+    background-color: black !important;
+    border-color: black !important;
+}
+.form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+}
+/* register page */
+
+/* reset page */
+.reset_container {
+    background-color: #efefef;
+    width: 500px;
+    height: 600px;
+    margin-left: 377px;;
+     
+}
+.reset_container_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.reset_container_content p{
+    color: black;  
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 2%;
+}
+.reset_container_content hr{
+    width: 32%;
+    margin: auto;
+    height: 2px;
+}
+.reset_container_content .reset_field{
+    margin-top: 14px;   
+    width: 394px;
+}
+label{
+    font-family: 'Poppins', sans-serif;
+}
+.reset_container_content .reset_field input{
+    width: 394px;
+    height: 42px;
+    outline: none;
+    padding: 8px;
+    border: none;
+    box-shadow: 0px 0px 9px gray;
+    border-radius: 8px;
+    margin-top: 7px;
+    background-color: white;
+    font-weight: 100;
+
+}
+.reset_container .reset_button button {
+    display: block;
+    width: 394px;   
+    border: none;
+    background-color: black;
+    color: #7D2545;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 21px;
+}
+.reset_container .reset_button a {
+    color: #0d0d0f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    display: block;
+
+}
+.reset_button hr{
+    
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: black ;
+    margin-top: 22px;
+    border:none;
+}
+.reset_container .sign_up_button p{
+    margin-top: 27px;
+}
+.reset_container .sign_up_button button {
+    display: block;
+    width: 450px;
+    border: none;
+    background-color: white;
+    color: gray;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    
+}
+.form-select-sm{
+    width: 394px;
+    height: 42px;
+    outline: none;
+    padding: 8px;
+    border: none;
+    box-shadow: 0px 0px 9px gray;
+    border-radius: 8px;
+    margin-top: 7px;
+}
+.form-select:focus{
+    border-color: gray !important ;
+    box-shadow: 0px 0px 9px gray !important;
+}
+
+
+.reset_checkbox{
+    margin-top: 10px;
+    margin-right: 215px;
+}
+
+.form-check-input:checked {
+    background-color: black !important;
+    border-color: black !important;
+}
+.form-check-input:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+}
+/* reset page */
+
+/* main page */
+
+.main_page{
+    background-image : url(../images/Welcome.png) ;
+    height: 753px;
+    width: 1536px;
+    background-size:     cover;                   
+    background-repeat:   no-repeat;
+    display: flex;
+    /* margin-left: 12px; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.main_page .welcome_container h2{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: -39px;
+}
+
+.main_page .welcome_container {
+
+    width: 30%;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 53px;
+}
+.main_page .welcome_container .welcome_login_button{
+    display: block;
+    width: 394px;   
+    border: none;
+    background-color: white;
+    color: #780932;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 21px;
+}   
+
+
+.main_page .welcome_container .welcome_signup_button{
+    display: block;
+    width: 394px;   
+    border: none;
+    background-color: rgb(125, 37, 69);
+    color: white;
+    border-radius: 25px;
+    height: 49px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    
+}  
+.main_page .welcome_container p{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    margin-bottom: 12px;
+    margin-top: 15px;
+}
+.main_page .about_container h1{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.main_page .about_container{
+    background: rgb(125, 37, 69 , .4);
+    padding: 21px 31px;
+    width: 720px;
+    
+}
+
+.main_page .about_container p{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+/* main page  */

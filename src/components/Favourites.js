@@ -1,10 +1,13 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import SongSearch from './SongSearch';
+import SongSection from './SongSection';
 import SongsUser from './SongsUser';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import BottomBar from './BottomBar';
 import FavSection from './FavSection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 const Favourites = () => {
 
     const [favTracks , setFavTracks] = useState([])
@@ -14,7 +17,7 @@ const Favourites = () => {
           headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
       }
       ).then((response)=>{
-          // console.log(response)
+          console.log(response)
           setFavTracks(response.data) 
       }).catch((error)=>{
           console.log(error) ; 
@@ -25,7 +28,21 @@ const Favourites = () => {
       getFavTracks()
       },[])  
   
+      //add to history 
+    const addToHistory = (trackId)=>{
+        axios.get(`http://localhost:8080/api/v1/track/${trackId}`,
+        {
+            headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
+        }
+        ).then((response)=>{
+            console.log(response.data)
+        }).catch((error)=>{
+            console.log(error) ; 
+        })
 
+    }
+
+    //add to history 
     return (
         <div className='main_div' >
         <header >
@@ -33,9 +50,16 @@ const Favourites = () => {
         <div className="song_side" >
         <nav>
             <SongsUser/>
+            <div className="song_search" >
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                <input type="text" placeholder="Search..."/>
+            </div>
         </nav>
-            <FavSection setFavTracks={setFavTracks} sectionTitle="your favorites" tracks={favTracks} />
+            {/* <FavSection setFavTracks={setFavTracks} sectionTitle="Your Favorites" tracks={favTracks} /> */}
+            <SongSection addToHistory={addToHistory} setFavTracks={setFavTracks} sectionTitle="Your Favorites" tracks={favTracks} />
+            
         </div>
+        <BottomBar/>
         </header>
         </div>
     );

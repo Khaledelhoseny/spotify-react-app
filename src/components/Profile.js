@@ -4,13 +4,17 @@ import SongsUser from './SongsUser';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Player from './Player';
+import BottomBar from './BottomBar';
+
+import ProfileCard from './ProfileCard';
 
 const Profile = () => {
-
+// get random pic
     function randomPic(){
         return Math.floor((Math.random() * 2) + 1);
     }
+// get random pic
+// get profile info 
     const [userInfo , setUserInfo] = useState({})
     useEffect(()=>{
         axios.get("http://localhost:8080/api/v1/user/profile",
@@ -26,47 +30,65 @@ const Profile = () => {
       })
   
         },[])
+// get profile info
+const [favTracks , setFavTracks] = useState([])
+    const getFavTracks = ()=>{
+      axios.get("http://localhost:8080/api/v1/favorite?pageNumber=1&pageSize=20",
+      {
+          headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
+      }
+      ).then((response)=>{
+          // console.log(response)
+          setFavTracks(response.data) 
+      }).catch((error)=>{
+          console.log(error) ; 
+      })
+  
+    } 
+    useEffect(()=>{
+      getFavTracks()
+      },[])  
+  
+      //add to history 
+    const addToHistory = (trackId)=>{
+        axios.get(`http://localhost:8080/api/v1/track/${trackId}`,
+        {
+            headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
+        }
+        ).then((response)=>{
+            console.log(response.data)
+        }).catch((error)=>{
+            console.log(error) ; 
+        })
 
-        
+    }
+
+    //add to history         
     return (
         <div className='main_div' >
             <header>
                 <Sidebar/>
-                <div className="song_side background_img" >
-                    <nav>
-                    <SongsUser/>
-                    </nav>
-                    <div className="artist_details" >
-                        <img src="../images/me.jpg" alt=""/>
+                <div className="song_side " >
+                    
+                    <div className="artist_details background_img" >
+                        <nav>
+                            <SongsUser/>
+                        </nav>
+                        <img className='user_left_img' src="../images/user.jpg" alt=""/>
                         <h5 className="artist_name">
                             <p>{userInfo.username}</p>
                         </h5>
                     </div>
-                    <div className="artist_songs">
-                        <Player/>
-                        <img id='pic' src= {`./images/song_${randomPic()}.jpg`}   alt=""/>
-                        <p className="mt-2 fs-5" > first first first first first</p>
-                        <p className="mt-2 fs-5"  >album album album album album</p>
-                        <div className="right_icons" >
-                            <ul>
-                            <li> 
-                                <span><i className="fa-solid fa-headphones fs-5 "></i></span>
-                                <span className="fs-5" >11,22,333</span>
-                            </li>
-                            
-                            <li>
-                                <span><i className="fa-solid fa-clock fs-5"></i></span>
-                                <span className="fs-5" >3:33</span>
-                            </li>
-                            <li><i className="fa-solid fa-heart text-light fs-4"></i></li>
-                            <li><i className="fa-solid fa-ellipsis text-light fs-3 fw-bold "></i></li>
-                            </ul>
-                        </div>
-                    </div>
+    
+                    <h2 style={{color:"white",marginLeft: 40,marginTop: 20 , fontFamily: 'Poppins'}} >Your Favorite Songs</h2>
+                    {favTracks.length>=1 ? favTracks.map((track,index)=>(  
+                        <ProfileCard  setFavTracks={setFavTracks} addToHistory={addToHistory} key={index} track={track} />
+                )) : <h4 className='loading' >There is no tracks ...</h4>}   
 
                 </div>
                
 
+                <BottomBar/>
 
             </header>
       </div>
