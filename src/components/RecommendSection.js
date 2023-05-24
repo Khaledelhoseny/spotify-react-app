@@ -6,10 +6,6 @@ const RecommendSection = ({tracks,sectionTitle}) => {
         <div className='song_section' >
               <div>
                 <h3>{sectionTitle}</h3>
-                {
-                       sectionTitle? <Link >seemore</Link> :<></>
-                }
-                
                 
                 </div>
             <div className="song_section" >

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 const BottomBar = () => {
     function randomPic(){
@@ -19,8 +20,9 @@ const BottomBar = () => {
           </h5>
           <div id='artist_name' class="subtitle" ></div>
         </div>
-        <div onClick={navigateToYouTube} className='bottomBar_link' >
-          go to link
+        <div id='bottomBar_link' style={{display:"none"}} onClick={navigateToYouTube} className='bottomBar_link' >
+        <FontAwesomeIcon style={{marginRight:"10"}} icon={faLink} />
+          Go to link
         </div>
         {/* <div class="middle-side text-center" >
           <span><i class="fa-solid fa-backward-step"></i></span>

@@ -5,9 +5,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import BottomBar from './BottomBar';
-
 import ProfileCard from './ProfileCard';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMusic } from '@fortawesome/free-solid-svg-icons'
 const Profile = () => {
 // get random pic
     function randomPic(){
@@ -74,17 +74,25 @@ const [favTracks , setFavTracks] = useState([])
                         <nav>
                             <SongsUser/>
                         </nav>
-                        <img className='user_left_img' src="../images/user.jpg" alt=""/>
+                        <img className='user_left_img' src="../images/user.png" alt=""/>
                         <h5 className="artist_name">
                             <p>{userInfo.username}</p>
                         </h5>
                     </div>
-    
+                    { favTracks.length>=1 ?
                     <h2 style={{color:"white",marginLeft: 40,marginTop: 20 , fontFamily: 'Poppins'}} >Your Favorite Songs</h2>
-                    {favTracks.length>=1 ? favTracks.map((track,index)=>(  
-                        <ProfileCard  setFavTracks={setFavTracks} addToHistory={addToHistory} key={index} track={track} />
-                )) : <h4 className='loading' >There is no tracks ...</h4>}   
+                        :
+                        <></>
+                    }
 
+                    {favTracks.length>=1 ? favTracks.map((track,index)=>(  
+                        <>
+                        <ProfileCard  setFavTracks={setFavTracks} addToHistory={addToHistory} key={index} track={track} />
+                        </>
+                )) :<>  <h4  className='loading text-center' > <FontAwesomeIcon style={{marginBottom:"10"}} icon={faMusic} /> <br/> Songs you like will appear here ...</h4> </>
+                
+                }   
+ 
                 </div>
                
 

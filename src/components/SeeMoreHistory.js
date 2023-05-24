@@ -42,8 +42,8 @@ useEffect(()=>{
         </div>
 
         </nav>
-            
-        <SongSection  tracks={historyTracks} /> 
+            <h3 className='see_more_title' >History</h3>
+        <SongSection tracks={historyTracks} /> 
 
         </div>
         <BottomBar/>

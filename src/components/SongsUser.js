@@ -30,7 +30,7 @@ const SongsUser = () => {
         <span>{userInfo.username}</span>
         <div className="dropdown">
         <div className="dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false"  >
-          <img  className='user_right_img' src="./images/user.jpg" alt=""/>
+          <img  className='user_right_img' src="./images/user.png" alt=""/>
         </div>
         <ul className="dropdown-menu">
           <li><Link className="dropdown-item" to="/profile">Profile</Link></li>

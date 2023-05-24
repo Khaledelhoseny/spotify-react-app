@@ -8,6 +8,7 @@ import BottomBar from './BottomBar';
 import FavSection from './FavSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMusic } from '@fortawesome/free-solid-svg-icons'
 const Favourites = () => {
 
     const [favTracks , setFavTracks] = useState([])
@@ -55,8 +56,12 @@ const Favourites = () => {
                 <input type="text" placeholder="Search..."/>
             </div>
         </nav>
+            {favTracks.length>=1 ?
+                <SongSection addToHistory={addToHistory} setFavTracks={setFavTracks} sectionTitle="Your Favorites" tracks={favTracks} />
+                 :
+                 <>  <h4  className='loading text-center' > <FontAwesomeIcon style={{marginBottom:"10"}} icon={faMusic} /> <br/> Songs you like will appear here ...</h4> </>
+                }
             {/* <FavSection setFavTracks={setFavTracks} sectionTitle="Your Favorites" tracks={favTracks} /> */}
-            <SongSection addToHistory={addToHistory} setFavTracks={setFavTracks} sectionTitle="Your Favorites" tracks={favTracks} />
             
         </div>
         <BottomBar/>

@@ -4,13 +4,17 @@ import SongsUser from './SongsUser';
 import { useState } from 'react';
 import BottomBar from './BottomBar';
 import axios from 'axios';
+import ResetPasswordVald from './ResetPasswordVald' ;
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ResetPassword = () => {
     const [values , setValues] = useState({
         currentPassword:'' , 
         newPassword:''
     })
 
-    // const [errors , setError] = useState({}) ; 
+    const [errors , setError] = useState({}) ; 
 
     function handleChange(e){
         setValues({...values , [e.target.name] :e.target.value})
@@ -30,8 +34,30 @@ const ResetPassword = () => {
         } 
         ).then((response)=>{
             console.log(response)
+            setError(ResetPasswordVald(values)) ;
+            toast.success('password reset successfuly', {
+                position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                })
         }).catch((error)=>{
-            console.log(error) ; 
+            console.log(error)
+            if(error.response.status ===400){
+                setError(ResetPasswordVald(values)) ;
+            }else if(error.response.status ===403){
+                setError(
+                    {
+                        currentPassword:"invalid current password",
+
+                    }
+                ) ;
+            }
+
         })
     }
     // const navigate =  useNavigate()
@@ -52,6 +78,20 @@ const ResetPassword = () => {
                     <SongsUser/>
                 </nav> 
                     <div class="reset_container" >
+                    <ToastContainer 
+                        position="top-center"
+                        autoClose={4000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
+        
+                    
                         <img src="./images/uper-signin.jpeg" width="100%" alt=""/>
                         <form  onSubmit={handleSubmit} >
                             <div class="reset_container_content" > 
@@ -62,13 +102,13 @@ const ResetPassword = () => {
                                         <label for="">current password</label>
                                         <br/>
                                         <input type="text" className="login__input" placeholder="current password" onChange={handleChange} name='currentPassword' />
-                                        {/* {errors.name && <p style={{color:"red"}} >{errors.name}</p> }  */}
+                                        {errors.currentPassword && <p style={{color:"red"}} >{errors.currentPassword}</p> } 
                                     </div>
                                     <div class="reset_field" >
                                         <label for="">new password</label>
                                         <br/>
-                                        <input type="password" className="login__input" placeholder="new password"    onChange={handleChange} name='newPassword'  />
-                                        {/* {errors.password && <p style={{color:"red"}} >{errors.password}</p> }  */}
+                                        <input type="text" className="login__input" placeholder="new password"    onChange={handleChange} name='newPassword'  />
+                                        {errors.newPassword && <p style={{color:"red"}} >{errors.newPassword}</p> } 
                                     </div>
                                     <div class="reset_button" >
                                         <button className='mt-3' >Reset</button>

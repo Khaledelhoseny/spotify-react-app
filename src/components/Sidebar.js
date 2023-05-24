@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,7 +6,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faFire } from '@fortawesome/free-solid-svg-icons'
 
-// import { Link } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import logo from '../images/beat.jpeg'
 function handleRemove(){
     localStorage.removeItem("accessToken")
@@ -14,22 +14,22 @@ function handleRemove(){
 const Sidebar = () => {
     return (
         <div className="menu_side" >
-               <a href=""> <img src= "./images/beat.jpeg" alt=""/> </a>
+              <NavLink  to='/home' > <img src= "./images/beat.png"  alt=""/> </NavLink>
             <div className="menu_item" >      
                 <span><FontAwesomeIcon icon={faHouse} /></span>
-                <Link className='active' to='/home' >Home</Link>
+                <NavLink to='/home' >Home</NavLink>
             </div>
             <div className="menu_item" > 
                 <span><FontAwesomeIcon icon={faHeart} /></span>
-                <Link to='/favourits' >Favourites</Link>
+                <NavLink to='/favourits' >Favourites</NavLink>
             </div> 
             <div className="menu_item" > 
             
                 <span><FontAwesomeIcon icon={faFire} /></span>
-                <Link to='/trend' >Trend</Link>
+                <NavLink to='/trend' >Trend</NavLink>
             </div> 
             <div className="menu_item last_item" >  
-            <Link onClick={handleRemove} to='/login' >Login</Link>
+            <NavLink onClick={handleRemove} to='/' >Log Out</NavLink>
 
             </div>
         </div>

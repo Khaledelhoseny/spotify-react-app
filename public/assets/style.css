@@ -2,7 +2,7 @@
 p ,h2 {
     color: white;
 }
-span{
+.song_card .card-text span{
     color: black;
     font-size: 1rem;
     -webkit-line-clamp: 1;
@@ -30,13 +30,13 @@ header{
 }
 
 .menu_side{
-    width: 8%;
+    width: 10%;
     height: 87%;
     /* border: 1px white solid; */
 }
 
 .song_side{
-    width: 92%;
+    width: 90%;
     height: 87%;
     /* border: 1px white solid; */
     overflow: auto;
@@ -55,19 +55,24 @@ header{
     overflow: hidden;
     background-image: linear-gradient(to left , #2c1b2d , #7D2545 );
     border-radius: 45px 45px 0px 0px;
+    z-index: 1;
+    box-shadow: 0px -8px 20px black ;
 
 
 }
 .menu_side img {
 
-    width: 122px;
-    height: 90px;
+    width: 148px;
+    height: 83px;
     border-radius: 0% 27% 38% 0%;
 
 }
 .music_play .left-side .title{
+    left: 5%;
+    top: 3%;
+    position: absolute;
     color: white;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     font-family: 'Poppins', sans-serif;
 
 }
@@ -94,22 +99,28 @@ header{
 .music_play .left-side {
     text-align: center;
     margin-top: 15px;
-    display: flex;
-    margin-left: 137px;
+    /* display: flex; */
+    margin-left: 176px;
     position: relative;
     
 }
 .music_play .bottomBar_link {
   
+    font-size: 23px;
     position: absolute;
     color: white;
     bottom: 5%;
-    left: 48%;
+    left: 73%;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-decoration: underline;
+
+
 }
 .menu_item{
     background-image: linear-gradient(to left , #0d0d0f 40% , #4f4c53 );
-    width: 114px;
+    width: 129px;
     height: 50px;
     margin-top: 10px;
     display: flex;
@@ -122,6 +133,7 @@ header{
 
 
 .menu_item a{
+    font-size: 19px;
     text-decoration: none;
     color: white;
     margin-left: 6px;
@@ -131,6 +143,7 @@ header{
 .menu_item a:hover{
     color: white !important;
 }
+
 .menu_item span{
     color: white;
     font-size: 18px;
@@ -141,7 +154,7 @@ margin-top: 180px;
 }
 
 .song_side .song_user img{
-    width: 44px;
+    width: 38px;
     border-radius: 50%;
 }
 
@@ -215,17 +228,18 @@ header .song_side .songs-title a{
     font-weight: 700;
 }
 .song_card{
-    width: 211px;
+    width: 209px;
     background-color: white;
     text-align: center;
     transition: all .4s;
     position: relative;
     display: inline-block;
-    margin-right: 18px;  
+    /* margin-right: 18px; */
     margin-top: 18px;
     text-decoration: none;
     border-radius: 40px;
     overflow: hidden;
+    margin-left: 15px;
 }
  .song_card a{
     text-decoration: none;
@@ -299,21 +313,23 @@ header .song_side .songs-title a{
 
 /* artist page */
 .background_img{
-    background-image: url('../images/song_1.jpg');
+    background-image: url('../images/background.jpg');
     background-repeat: no-repeat;       
     background-size: 1400px 350px;
     /* background-size:cover ; */
 }
 header .song_side .artist_details .user_left_img{
-    width: 172px;
-    height: 210px;
-    margin-left: 23px;
+    width: 200px;
+    height: 200px;
+    margin-left: 42px;
+    margin-top: 27px;
     border: white 2px solid;
     border-radius: 10%;
+
 }
 header .song_side .artist_details{
     /* background-color: black; */
-    padding: 10px;
+    /* padding: 10px; */
     height: 336px;
 }
 header .song_side .artist_details .artist_name p{ 
@@ -363,7 +379,8 @@ header .song_side .artist_songs{
 }
 header .song_side .artist_songs img{ 
     border-radius: 13px;
-    width: 53px;
+    width: 62px;
+    height: 60px;
     margin-left: 20px;
     margin-top: -16px;
 }
@@ -615,7 +632,7 @@ header .song_side .artist_songs .fa-circle-play {
 
 }
 .song_section a{
-    color: #731c3c;
+    color: #c84374;
     float: right;
     font-size: 22px;
     font-weight: 700;
@@ -624,21 +641,35 @@ header .song_side .artist_songs .fa-circle-play {
 
 }
 .song_section a:hover{
-    color: #7D2545;
+    color: #c84374;
 
 }
 /* song section */
 /* loading */
 .loading{
-    margin-left: 31px;
-    margin-top: 16px;
     color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 48px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 33px;
+    font-weight: 800;
+
 }
 
 /* loading */
 /* drop down */
 .dropdown-menu{
     background-color: #0d0d0f !important;
+    transform: translate(0px, 0px) !important;
+    position: absolute !important;
+    inset: 0px auto auto 0px !important;
+    margin: 13px !important ;
+    left: -353% !important;
+    margin-top: 26px !important;
+    margin-right: 20px !important;
+    top: 42% !important;
+    
 }
 .dropdown-item{
     color: white !important ;
@@ -662,11 +693,18 @@ header .song_side .artist_songs .fa-circle-play {
     align-items: center;
     flex-direction: column;
 }
-.form_container_content p{
-    color: black;  
+.form_container_content h5{
+    /* color: black;   */
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    margin-top: 14%;
+    margin-top: 5%;
+}
+
+.form_container_content h6{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .form_container_content hr{
     width: 32%;
@@ -677,6 +715,8 @@ header .song_side .artist_songs .fa-circle-play {
     margin-top: 14px;
 
 }
+
+
 label{
     font-family: 'Poppins', sans-serif;
 }
@@ -746,8 +786,8 @@ label{
 .register_container {
     background-color: #efefef;
     margin: auto;
-    width: 500px;
-    height: 1300px;;
+    width: 580px;
+
      
 }
 .register_container_content {
@@ -755,11 +795,11 @@ label{
     align-items: center;
     flex-direction: column;
 }
-.register_container_content p{
-    color: black;  
+.register_container_content h5{
+    /* color: black;   */
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    margin-top: 2%;
+    margin-top: 5%;
 }
 .register_container_content hr{
     width: 32%;
@@ -767,9 +807,18 @@ label{
     height: 2px;
 }
 .register_container_content .register_field{
+    /* position: relative; */
     margin-top: 14px;   
     width: 394px;
 }
+.register_container_content .register_field .form_eye{
+    display: inline;
+    float: right;
+    position: absolute;
+    font-size: 18px;
+    bottom: 8px;
+    right: 11px;
+}   
 label{
     font-family: 'Poppins', sans-serif;
 }
@@ -798,7 +847,16 @@ label{
     font-weight: 700;
     font-size: 17px;
     margin-top: 21px;
-}
+    margin-bottom: 25px;
+
+} 
+.register_container .register_button button:disabled,
+    button[disabled] {
+        background-color: grey;
+        color: white;
+        padding: 15px;
+        cursor: not-allowed;
+    }
 .register_container .register_button a {
     color: #0d0d0f;
     font-family: 'Poppins', sans-serif;
@@ -808,31 +866,8 @@ label{
     display: block;
 
 }
-.register_button hr{
-    
-    width: 100%;
-    margin: auto;
-    height: 2px;
-    background-color: black ;
-    margin-top: 22px;
-    border:none;
-}
-.register_container .sign_up_button p{
-    margin-top: 27px;
-}
-.register_container .sign_up_button button {
-    display: block;
-    width: 450px;
-    border: none;
-    background-color: white;
-    color: gray;
-    border-radius: 25px;
-    height: 49px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 17px;
-    
-}
+
+
 .form-select-sm{
     width: 394px;
     height: 42px;
@@ -859,10 +894,80 @@ label{
     border-color: black !important;
 }
 .form-check-input:focus {
-    border-color: #86b7fe;
+    border-color: black !important;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25) !important;
 }
+
+
+/* a, a:visited {
+    color: #fff;
+} */
+.register_container_content a{
+    color: black;
+    font-family: 'Poppins', sans-serif;
+
+}
+.register_container_content a:hover{
+    color: black;
+
+}
+
+.register_container_content h6{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 100px;
+
+}
+
+.instructions {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 395px;
+    text-align: center;
+    margin-top: 14px;
+}
+
+.line {
+    display: inline-block;
+}
+
 /* register page */
 
 /* reset page */
@@ -1069,3 +1174,15 @@ label{
 }
 
 /* main page  */
+
+.see_more_title{
+    color: white;
+    margin-left: 19px;
+    margin-top: 13px;
+    display: inline;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: -21px;
+    display: block;
+}
+
+

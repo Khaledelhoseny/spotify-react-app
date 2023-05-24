@@ -32,10 +32,10 @@ useEffect(()=>{
     },[])
 // get user info
 
-// get pop tracks
+// get favorite tracks
     const [favGenreTracks , setFavGenreTracks] = useState([])
   const getFavGenreTracks = ()=>{
-    axios.get(`http://localhost:8080/api/v1/trend?genre=${localStorage.getItem('userInformation')}&pageNumber=2&pageSize=6`,
+    axios.get(`http://localhost:8080/api/v1/trend?genre=${localStorage.getItem('userInformation')}&pageNumber=1&pageSize=6`,
     {
         headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
     }
@@ -53,28 +53,11 @@ useEffect(()=>{
 
     // console.log(favGenreTracks)
 
-// get pop tracks
+// get favorite tracks
 
 
 
 // get rock tracks
-const [rockTracks , setRockTracks] = useState([])
-const getRockTracks = ()=>{
-  axios.get("http://localhost:8080/api/v1/trend?genre=Rock&pageNumber=1&pageSize=6",
-  {
-      headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
-  }
-  ).then((response)=>{
-      setRockTracks(response.data) 
-  }).catch((error)=>{
-      console.log(error) ; 
-
-  })
-
-} 
-useEffect(()=>{
-  getRockTracks()
-  },[])  
 
 // get rock tracks 
 
@@ -159,7 +142,7 @@ const getRecommendTracks = ()=>{
             headers: {"Authorization" : `Bearer ${localStorage.getItem('accessToken')}`} 
         }
         ).then((response)=>{
-            console.log(response)
+            // console.log(response)
             setRecommendTracks( response.data) 
         }).catch((error)=>{
             console.log(error) ; 
@@ -187,19 +170,20 @@ useEffect(()=>{
                 searchTracks.length!==0? <SearchSection addToHistory={addToHistory} tracks={searchTracks} /> 
                 :
                  <> 
-                  {recommendTracks.length>=1 ?
+                 <SongSection  sectionTitle={userInfo.favoriteGenre} addToHistory={addToHistory} tracks={favGenreTracks} /> 
+
+                
+                 {historyTracks.length>=1 ?
+                 <SongSection  sectionTitle="History" tracks={historyTracks} /> 
+                 :
+                 <></>
+                }
+                {recommendTracks.length>=1 ?
                  <RecommendSection sectionTitle="Recommend for you" tracks={recommendTracks} /> 
                  :
                  <></>
                 }
-                 {historyTracks.length>=1 ?
-                 <SongSection addToHistory={addToHistory} sectionTitle="History" tracks={historyTracks} /> 
-                 :
-                 <></>
-                }
-                 <SongSection  sectionTitle={userInfo.favoriteGenre} addToHistory={addToHistory} tracks={favGenreTracks} /> 
                  
-                 {/* <SongSection sectionTitle="Rock" addToHistory={addToHistory} tracks={rockTracks} />   */}
                  </>   
    
             }

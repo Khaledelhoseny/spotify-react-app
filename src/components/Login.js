@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import LoginValidation from './LoginValidation' ;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const Login = () => {
@@ -51,13 +53,9 @@ const Login = () => {
                     }
                 ) ; 
             }else if(error.response.status ===403 ||error.response.status ===400){
-                setError(
-                    {
-                        name:"invalid username",
-                        password : "invalid password"
-
-                    }
-                ) ;
+                setError( {
+                        invalid:"invalid username or password"
+                }) ;
             }
         
 
@@ -80,27 +78,42 @@ const Login = () => {
                 <img src="./images/uper-signin.jpeg" width="100%" alt=""/>
                 <form onSubmit={handleSubmit} >
                     <div class="form_container_content" > 
-                            <p>To continue, log in to BEAT</p>
+                            <h5>To continue, log in to BEAT</h5>
                             <hr/>   
+                            {errors.invalid &&   
+                                <p className='errmsg' >
+                                    {errors.invalid}
+                                </p>
+                                }
                             <div class="form_field" >
                                 <label for="">username</label>
                                 <br/>
                                 <input type="text" className="login__input" placeholder="User name" name='name'    onChange={handleChange} />
-                                {errors.name && <span style={{color:"red"}} >{errors.name}</span> } 
+                                {errors.name &&
+                                <p className='instructions' >
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    {errors.name}
+                                </p> 
+                                } 
                             </div>
                             <div class="form_field" >
                                 <label for="">password</label>
                                 <br/>
                                 <input type="password" className="login__input" placeholder="Password" name='password' onChange={handleChange} />
-                                {errors.password && <span style={{color:"red"}} >{errors.password}</span> } 
+                                {errors.password &&   
+                                <p className='instructions' >
+                                    <FontAwesomeIcon icon={faInfoCircle} />
+                                    {errors.password}
+                                </p>
+                                } 
                             </div>
                             <div class="form_button" >
                                 <button>Log in</button>
                                 <hr/>
                             </div> 
                             <div class="sign_up_button text-center  " >
-                                <p href="">Don't have an account ?</p>
-                                  <button onClick={navigateRegister} >Sign Up</button>
+                                <h6 href="">Don't have an account ?</h6>
+                                <button onClick={navigateRegister} >Sign Up</button>
                             </div>  
                         
                     </div>
