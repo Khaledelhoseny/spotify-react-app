@@ -372,7 +372,7 @@ header .song_side .categories .follow{
 header .song_side .artist_songs{ 
     background-image: linear-gradient(to left , #2e2c33 , #312c36 );
     width: 92%;
-    height: 72px;
+    height: 60px;
     margin: 28px 40px;
     border-radius: 20px;
     position: relative;
@@ -412,7 +412,7 @@ header .song_side .artist_songs .right_icons .fa-ellipsis {
     font-size: 39px;
     color: white;
     position: absolute;
-    bottom: 22px;
+    bottom: 15px;
     right: 20px;
 }
 header .song_side .artist_songs .fa-circle-play { 
@@ -422,7 +422,7 @@ header .song_side .artist_songs .fa-circle-play {
     
 }
 .artist_songs .right_icons .fav-icon{
-    top: 33px;
+    top: 28px;
     display: inline-block;
     position: relative;
     left: -152px;
@@ -739,7 +739,7 @@ label{
         width: 450px;
         border: none;
         background-color: black;
-        color: #7D2545;
+        color: #b43e69;
         border-radius: 25px;
         height: 49px;
         font-family: 'Poppins', sans-serif;
@@ -840,7 +840,7 @@ label{
     width: 394px;   
     border: none;
     background-color: black;
-    color: #7D2545;
+    color: #b43e69;
     border-radius: 25px;
     height: 49px;
     font-family: 'Poppins', sans-serif;
@@ -848,13 +848,14 @@ label{
     font-size: 17px;
     margin-top: 21px;
     margin-bottom: 25px;
+    padding: 11px;
+
 
 } 
 .register_container .register_button button:disabled,
     button[disabled] {
         background-color: grey;
         color: white;
-        padding: 15px;
         cursor: not-allowed;
     }
 .register_container .register_button a {
@@ -963,7 +964,16 @@ label{
     text-align: center;
     margin-top: 14px;
 }
-
+.login_errmsg{
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 445px;
+    text-align: center;
+    margin-top: 14px;
+}
 .line {
     display: inline-block;
 }

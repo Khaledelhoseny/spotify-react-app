@@ -81,7 +81,7 @@ const Login = () => {
                             <h5>To continue, log in to BEAT</h5>
                             <hr/>   
                             {errors.invalid &&   
-                                <p className='errmsg' >
+                                <p className='login_errmsg' >
                                     {errors.invalid}
                                 </p>
                                 }

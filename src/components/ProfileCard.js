@@ -26,7 +26,7 @@ const click = (tackId)=>{
           <Player />
         </div>
         <img className='ml-5' id='pic' src= {`./images/song_${randomPic()}.png`}   alt=""/>
-        <div style={{display:"inline-block",marginLeft: 13}} >
+        <div style={{display:"inline-block",marginLeft: 13 ,position:"absolute"}} >
         <p className=" fs-5" >{ track.track.title} </p>
         <p className=" fs-6"  >{track.track.artist.name}</p>
         </div>
